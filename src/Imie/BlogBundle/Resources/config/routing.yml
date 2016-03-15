@@ -1,0 +1,40 @@
+imie_article_ajout:
+    path:     /article/ajout
+    defaults: { _controller: ImieBlogBundle:Article:ajoutArticle }
+
+
+imie_article_modif:
+    path:     /article/modif/{id}
+    defaults: { _controller: ImieBlogBundle:Article:modifArticle }
+    requirements :
+        id : \d+
+
+imie_article_supp:
+    path:     /article/supp/{id}
+    defaults: { _controller: ImieBlogBundle:Article:suppArticle }
+    requirements :
+        id : \d+
+
+imie_article_voir:
+    path:     /article/voir/{id}
+    defaults: { _controller: ImieBlogBundle:Article:voirArticle }
+    requirements :
+        id : \d+
+
+imie_commentaire_ajout:
+    path:     /commentaire/ajout/{id}
+    defaults: { _controller: ImieBlogBundle:Commentaire:ajoutCommentaire }
+    requirements :
+        id : \d+
+
+imie_commentaire_suppr:
+    path:     /commentaire/supp/{id}
+    defaults: { _controller: ImieBlogBundle:Commentaire:suppCommentaire }
+    requirements :
+        id : \d+
+
+imie_article_afficher:
+    path:     /article/afficher/{page}
+    defaults: { _controller: ImieBlogBundle:Article:afficherArticle, page:'1'}
+    requirements :
+

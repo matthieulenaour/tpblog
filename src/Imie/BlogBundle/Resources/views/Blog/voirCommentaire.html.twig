@@ -1,0 +1,32 @@
+
+
+{% block body %}
+    <h1>Commentaire</h1>
+
+    <table>
+        <tbody>
+            
+            <tr>
+                <th>Auteur</th>
+                <td>{{ commentaire.auteur }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ commentaire.contenu }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if commentaire.date %}{{ commentaire.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{  }}">Modifier</a>
+        </li>
+        <li>
+             <a href="{{  }}">Supprimer</a>
+        </li>
+    </ul>
+{% endblock %}

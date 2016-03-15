@@ -1,0 +1,72 @@
+{% extends 'ImieBlogBundle:layout.html.twig' %}
+
+{% block body %}
+    <h1>Article</h1>
+
+        <h4>Date</h4>
+            <div>{% if article.date %}{{ article.date|date('Y-m-d H:i:s') }}{% endif %}</div>
+        <h4>Titre</h4>
+            <div>{{ article.titre }}</div>
+            <div><img src="{{ article.image }}"/></div>
+        <h4>Auteur</h4>
+            <div>{{ article.auteur }}</div>
+        <h4>Contenu</h4>
+            <div>{{ article.contenu }}</div>
+   
+    <ul>
+        <li>
+            <a href="{{ path('imie_article_afficher') }}">Retour à la liste</a>
+        </li>
+        <li>
+            <a href="{{ path('imie_article_modif', { 'id': article.id }) }}">Modifier</a>
+        </li>
+        <li>
+            <a href="{{ path('imie_article_supp', { 'id': article.id }) }}">Supprimer Article</a>
+        </li>
+    
+
+       
+{% if commentaires %}
+
+     <h1>Commentaires</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Auteur</th>
+                <th>Contenu</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commentaire in commentaires %}
+            <tr>
+                <td>{{ commentaire.auteur }}</td>
+                <td>{{ commentaire.contenu }}</td>
+                <td>{% if commentaire.date %}{{ commentaire.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="">Voir</a>
+                        </li>
+                        <li>
+                            <a href="">Modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endif %}
+
+    <li>
+            <a href="{{ path('imie_commentaire_ajout', { 'id': article.id }) }}">Ajouter Commentaire</a>
+        </li>
+    </ul>
+
+
+{% endblock %}
+

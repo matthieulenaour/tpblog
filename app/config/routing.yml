@@ -1,0 +1,5 @@
+imie_blog:
+    resource: "@ImieBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
